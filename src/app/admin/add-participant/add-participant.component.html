@@ -1,0 +1,117 @@
+<mat-card class="container">
+    <h1>Add New Participant</h1>
+    <div class="row">
+       <form >
+        <mat-tab-group>
+          <mat-tab label="Nageur"> 
+              <div class="col-md-10 offset-md-1">
+                 
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Nage</mat-label>
+                      <mat-select [(ngModel)]="participant.nage" name="nage">
+                          <mat-option value="25_nage_libres_d">ASAMIN</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                   
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Classement</mat-label>
+                      <mat-select  name="nageur" class="country"  [(ngModel)]="participant.nageur">
+                        <mat-option value="finale" >
+                             SILVA PINTO
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+               
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group region1"
+  >
+  
+  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.club"  value="club" name="club" >
+    Club
+  </mat-radio-button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.pays" value="pays" name="pays">
+    Pays
+  </mat-radio-button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.autre" value="autre" name="autre" >
+    Other
+  </mat-radio-button>
+</mat-radio-group>
+                    <mat-form-field class="w100 region1" appearance="fill" style="margin-left: 185px;">
+                      
+                      <mat-label>Equipe</mat-label>
+                      <input required  [(ngModel)]="participant.equipe" name="equipe" value="equipe" type="text" name="lieu_de_naissance"  placeholder="Enter here" matInput id=""/>
+                  </mat-form-field>
+                    
+                 
+                  <br>
+                  <button mat-raised-button class=" add" >Add</button>
+                  <button mat-raised-button class="clear " (click)="clear1()">Clear</button>
+  
+          </div></mat-tab>
+  
+           <mat-tab label="Engagement details" > 
+          &nbsp;
+          <div *ngFor="let hobby of hobbiesArray.controls; last as isLast; index as idx" class="input-row">
+            <mat-form-field>
+              <mat-label>Epreuve</mat-label>
+              <input matInput [formControl]="hobby" >
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Temps</mat-label>
+              <input matInput [formControl]="hobby" style="margin-left: 15px;">
+            </mat-form-field>
+            <mat-checkbox class="example-margin" [(ngModel)]="participant.hors_concours">Hors concours</mat-checkbox>
+            <mat-form-field appearance="fill" class="mt20 w100 countries">
+              <mat-label >Bassin</mat-label>
+              <mat-select [(ngModel)]="participant.bassin" name="nage">
+                  <mat-option value="25_nage_libres_d">Petit bassin</mat-option>
+                  <mat-option value="25_nage_libres_d">Grand bassin</mat-option>
+                  <mat-option value="25_nage_libres_d">Tout bassin</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-form-field region1">
+              <mat-label>Choose a date</mat-label>
+              <input 
+                      [(ngModel)]="participant.date" 
+                      name="dateNaissance" 
+                      matInput 
+                      [matDatepicker]="datepicker"
+                                                >
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker  #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Lieu</mat-label>
+              <input matInput [formControl]="hobby">
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="removeInputControl(idx)" *ngIf="hobbiesArray.length>1">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" *ngIf="isLast" (click)="addInputControl()">
+              <mat-icon>add_circle</mat-icon>
+
+            </button>
+           
+
+          </div>
+         
+  </mat-tab> 
+         
+        </mat-tab-group>
+       </form>
+         
+  
+    <br>
+    </div>
+  </mat-card>
+  

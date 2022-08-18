@@ -1,0 +1,252 @@
+<mat-card class="container">
+  <h1>Add New Competition</h1>
+  <div class="row">
+     <form (ngSubmit)="formSubmit()">
+      <mat-tab-group>
+        <mat-tab label="GENERAL"> 
+            <div class="col-md-10 offset-md-1" style="margin-top: 15px;">
+                <mat-form-field class="w100 region1" appearance="fill">   
+                    <mat-label>Competition</mat-label>
+                    <input required [(ngModel)]="competition.competition"  name="competition"  type="text"  placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
+                <mat-form-field class="w100 region1" appearance="fill">
+                    <mat-label>Code</mat-label>
+                    <input required [(ngModel)]="competition.code"  name="code"   type="text"   placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mt20 w100 countries">
+                    <mat-label >Team</mat-label>
+                    <mat-select  [(ngModel)]="team"  name="team" >
+                        <mat-option value="yes">Yes</mat-option>
+                        <mat-option value="no">No</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Cotation</mat-label>
+                      <mat-select [(ngModel)]="competition.cotation"  name="cotation" >
+                          <mat-option value="L.E.N.">L.E.N.</mat-option>
+                          <mat-option value="Néeant">Néeant</mat-option>
+                          <mat-option value="F.F.N">F.F.N</mat-option>
+                          <mat-option value="F.I.N.A">F.I.N.A</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  <mat-form-field appearance="fill" class="example-form-field region1">
+                    <mat-label>Choose a date</mat-label>
+                    <input  matInput [matDatepicker]="datepicker" [(ngModel)]="competition.dateDebut"  name="dateDebut" >
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker>
+                      <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill" class="example-form-field region1">
+                      <input  matInput [matDatepicker]="datepicker1" [(ngModel)]="competition.dateFin"  name="dateFin" >
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                      <mat-datepicker #datepicker1>
+                        <mat-datepicker-actions>
+                          <button mat-button matDatepickerCancel>Cancel</button>
+                          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                      </mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="w100 region1" appearance="fill">   
+                      <mat-label>Place</mat-label>
+                      <input required   type="text" [(ngModel)]="competition.place"  name="place"  placeholder="Enter here" matInput id=""/>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Bassin</mat-label>
+                      <mat-select [(ngModel)]="competition.bassinGeneral"  name="bassinGeneral" >
+                          <mat-option value="tous">tous bassin</mat-option>
+                          <mat-option value="grand">grand bassin</mat-option>
+                          <mat-option value="petit">petit bassin</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Couloirs</mat-label>
+                      <mat-select [(ngModel)]="competition.couloirs"  name="couloirs" >
+                          <mat-option value="4">4</mat-option>
+                          <mat-option value="5">5</mat-option>
+                          <mat-option value="6">6</mat-option>
+                          <mat-option value="7">7</mat-option>
+                          <mat-option value="8">8</mat-option>
+                          <mat-option value="9">9</mat-option>
+                          <mat-option value="10">10</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Federation</mat-label>
+                      <mat-select [(ngModel)]="competition.federation"  name="federation" >
+                          <mat-option value="animation">Animation</mat-option>
+                          <mat-option value="qualification">Qualification</mat-option>
+                          <mat-option value="reference">Référence</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                <br>
+                <button mat-raised-button class=" add" >Add</button>
+                <button mat-raised-button class="clear ">Clear</button>
+
+        </div></mat-tab>
+
+        <mat-tab label="ENGAGEMENTS" > 
+          <mat-form-field appearance="fill" class="mt20 w100 countries">
+              <mat-label >Bassin</mat-label>
+              <mat-select [(ngModel)]="competition.bassinEngagement"  name="bassinEngagement" >
+                  <mat-option value="tous">tous bassin</mat-option>
+                  <mat-option value="grand">grand bassin</mat-option>
+                  <mat-option value="petit">petit bassin</mat-option>
+                </mat-select>
+            </mat-form-field>
+        &nbsp;
+        <mat-slide-toggle
+            #checkboxes
+            [(ngModel)]="competition.qualificaition"
+            name="qualificaition"
+            color="admin-color"
+            class=" container1 container2"
+            [checked]="false"
+            type="checkbox"
+           >
+          Qualification
+        </mat-slide-toggle>
+        &nbsp;
+        <mat-slide-toggle
+            #checkboxes
+            [(ngModel)]="competition.reference"
+            name="synchro"
+            color="admin-color"
+            class=" container1"
+            [checked]="false"
+            type="checkbox"
+           >
+           Reference's type
+        </mat-slide-toggle>
+        &nbsp;
+        <mat-slide-toggle
+        #checkboxes
+        [(ngModel)]="competition.animation"
+        name="water_polo"
+        color="admin-color"
+        class=" container1"
+        [checked]="false"
+        type="checkbox"
+       >
+       Animation
+    </mat-slide-toggle>
+    &nbsp;
+    <mat-form-field appearance="fill" class="example-form-field region1">
+      <mat-label>Periode valide des performances pour les engagements</mat-label>
+      <input   [(ngModel)]="competition.periodeValideDebut" name="periodeValideDebut" matInput [matDatepicker]="datepicker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="datepicker2"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker2>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-form-field region1">
+     
+      <input  [(ngModel)]="competition.periodeValideFin" name="periodeValideFin"  matInput [matDatepicker]="datepicker3">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="datepicker3"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker3>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button class="clear clear1">Clear</button>
+</mat-tab>
+        <mat-tab label="Record tracking">
+            <div class="col-md-10 offset-md-1 c1" >
+              <mat-slide-toggle
+                  #checkboxes
+                  [(ngModel)]= "competition.recordForAllCategories"
+                  name="recordForAllCategories"
+                  color="admin-color"
+                  class=" container1"
+                  [checked]="false"
+                  type="checkbox"
+                  (click)="click1()"
+                  >
+                Record for all categories
+              </mat-slide-toggle>
+              <mat-slide-toggle
+                  #checkboxes
+                  [(ngModel)]= "competition.recordByCategory"
+                  name="recordByCategory"
+                  color="admin-color"
+                  class=" container1"
+                  [checked]="false"
+                  type="checkbox"
+                  (click)="click2()"
+                  >
+                Record by category
+              </mat-slide-toggle>
+              <mat-slide-toggle
+                  #checkboxes
+                  [(ngModel)]= "competition.theTwo"
+                  name="theTwo"
+                  color="admin-color"
+                  class=" container1"
+                  [checked]="false"
+                  type="checkbox"
+                  (click)="click3()"
+                  >
+                Both
+              </mat-slide-toggle>
+              <section class="example-section checkbox1">
+                <mat-checkbox class="example-margin "  [(ngModel)]="competition.worldWide" name="worldwide">WorldWide</mat-checkbox>
+                <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.africa" name="africa">Africa</mat-checkbox>
+                <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.morocco" name="africa">Morocco</mat-checkbox>
+                <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.meeting"  (click)="click4()" name="meeting">Meeting</mat-checkbox>
+              </section>
+              <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="hidden==true">
+                <mat-label >Federation</mat-label>
+                <mat-select >
+                    <mat-option value="performance_cadets">Performancees Cadets</mat-option>
+                    <mat-option value="performance_juniors">Performance juniors</mat-option>
+                    <mat-option value="performance_minimes">Performance minimes</mat-option>
+                    <mat-option value="xi_comen_cup">XI COMEN CUP</mat-option>
+                    <mat-option value="african_records_13-14">African records 13-14ans</mat-option>
+                    <mat-option value="african_records_15-16">African records 15-16ans</mat-option>
+                    <mat-option value="performance_poussins">Performances poussins</mat-option>
+                    <mat-option value="performance_benjamins">Performances benjamins</mat-option>
+                    <mat-option value="records_afrique">Records d'afrique</mat-option>
+                    <mat-option value="championnats_d'afrique">Championnats d'afrique</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="hidden==true">
+              Saisissez ici le libellé du record
+            <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+          
+            
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="hidden==true">
+              Saisissez ici la légende pour un record battu
+            <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="hidden==true">
+              Saisissez ici la légende pour un record égalé
+            <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+            </mat-form-field>
+            
+        
+        
+        <button mat-raised-button class="clear clear2" >Clear</button>
+    </div>
+    </mat-tab>
+      </mat-tab-group>
+     </form>
+  <br>
+  </div>
+</mat-card>

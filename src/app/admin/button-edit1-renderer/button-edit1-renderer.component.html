@@ -1,0 +1,19 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item  [routerLink]="['/admin/editCompetitorForm', value]">
+      <mat-icon>border_color</mat-icon>
+      <span>edit</span>
+    </button>
+    <button mat-menu-item (click)="transferHandler()">
+      <mat-icon>transfer_within_a_station</mat-icon>
+      <span>transfert</span>
+    </button>
+    <button mat-menu-item (click)="myClickFunction()" >
+      <mat-icon>autorenew</mat-icon>
+      <span>renew</span>
+    </button>
+  </mat-menu>
+&nbsp;&nbsp;&nbsp;
+<button mat-raised-button class="delete" (click)="onClickDeleteHandler()">Delete</button>

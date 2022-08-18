@@ -1,0 +1,26 @@
+<mat-toolbar class="admin-color">
+  <a
+  [routerLink]="'/home'"
+      mat-icon-button class="example-icon" >
+   <mat-icon>pool</mat-icon>
+ </a>
+ <img src="../assets/logo.png"  class="logo" alt="">
+   &nbsp;&nbsp;
+   <span>Competition Management</span>
+   <span class="example-spacer"></span>
+
+ <a
+ (click)="logout()"
+ *ngIf="isLoggedIn" 
+ [routerLink]="'/signup'"
+ mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+  logout
+ </a>
+ <button
+ *ngIf="isLoggedIn" 
+  mat-button
+  routerLink="/admin/profile"
+  class="example-icon favorite-icon mr30 ml20" aria-label="Example icon-button with heart icon">
+  {{login.getUser().username}}
+ </button>
+</mat-toolbar>

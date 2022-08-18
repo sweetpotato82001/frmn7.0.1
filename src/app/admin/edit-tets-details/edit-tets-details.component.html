@@ -1,0 +1,226 @@
+<mat-card class="container">
+    <h1>Edit Test's details</h1>
+    <div class="row">
+       <form >
+        <mat-tab-group>
+          <mat-tab label="Nageur"> 
+              <div class="col-md-10 offset-md-1">
+                  <mat-form-field class="w100 region1" appearance="fill">
+                      
+                      <mat-label>No</mat-label>
+                      <input required  [(ngModel)]="test.no" type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+                  </mat-form-field>
+                 
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Nage</mat-label>
+                      <mat-select [(ngModel)]="test.nage" name="sexe">
+                          <mat-option value="25_nage_libres_d">25 m nage libre dames</mat-option>
+                          <mat-option value="25_nage_libres_m">25 m nage libre messieurs</mat-option>
+                          <mat-option value="50_nage_libres_d">50 m nage libre dames</mat-option>
+                          <mat-option value="50_nage_libres_m">50 m nage libre messieurs</mat-option>
+                          <mat-option value="100_nage_libres_d">100 m nage libre dames</mat-option>
+                          <mat-option value="100_nage_libres_m">100 m nage libre messieurs</mat-option>
+                          <mat-option value="200_nage_libres_d">200 m nage libre dames</mat-option>
+                          <mat-option value="200_nage_libres_m">200 m nage libre messieurs</mat-option>
+                          <mat-option value="400_nage_libres_d">400 m nage libre dames</mat-option>
+                          <mat-option value="400_nage_libres_m">400 m nage libre messieurs</mat-option>
+                          <mat-option value="800_nage_libres_d">800 m nage libre dames</mat-option>
+                          <mat-option value="800_nage_libres_m">800 m nage libre messieurs</mat-option>
+                          <mat-option value="1000_nage_libres_d">1000 m nage libre dames</mat-option>
+                          <mat-option value="1000_nage_libres_m">1000 m nage libre messieurs</mat-option>
+                          <mat-option value="1500_nage_libres_d">1500 m nage libre dames</mat-option>
+                          <mat-option value="1500_nage_libres_m">1500 m nage libre messieurs</mat-option>
+                          <mat-option value="25_dos_d">25m dos dames</mat-option>
+                          <mat-option value="25_dos_m">25m dos messieurs</mat-option>
+                          <mat-option value="50_dos_d">50m dos dames</mat-option>
+                          <mat-option value="50_dos_m">50m dos messieurs</mat-option>
+                          <mat-option value="100_dos_d">100m dos dames</mat-option>
+                          <mat-option value="100_dos_m">100m dos messieurs</mat-option>
+                          <mat-option value="200_dos_d">200m dos dames</mat-option>
+                          <mat-option value="200_dos_m">200m dos messieurs</mat-option>
+                          <mat-option value="25_brasse_d">25m brasse dames</mat-option>
+                          <mat-option value="25_brasse_m">25m brasse messieurs</mat-option>
+                          <mat-option value="50_brasse_d">50m brasse dames</mat-option>
+                          <mat-option value="50_brasse_m">50m brasse messieurs</mat-option>
+                          <mat-option value="100_brasse_d">100m brasse dames</mat-option>
+                          <mat-option value="100_brasse_m">100m brasse messieurs</mat-option>
+                          <mat-option value="200_brasse_d">200m brasse dames</mat-option>
+                          <mat-option value="200_brasse_m">200m brasse messieurs</mat-option>
+                          <mat-option value="25_papillon_d">25m papillon dames</mat-option>
+                          <mat-option value="25_papillon_m">25m papillon messieurs</mat-option>
+                          <mat-option value="50_papillon_d">50m papillon dames</mat-option>
+                          <mat-option value="50_papillon_m">50m papillon messieurs</mat-option>
+                          <mat-option value="100_papillon_d">100m papillon dames</mat-option>
+                          <mat-option value="100_papillon_m">100m papillon messieurs</mat-option>
+                          <mat-option value="200_papillon_d">200m papillon dames</mat-option>
+                          <mat-option value="200_papillon_m">200m papillon messieurs</mat-option>
+                          <mat-option value="100_4nages_d">100m 4 nages dames</mat-option>
+                          <mat-option value="100_4nages_m">100m 4 nages messieurs</mat-option>
+                          <mat-option value="200_4nages_d">200m 4 nages dames</mat-option>
+                          <mat-option value="200_4nages_m">200m 4 nages messieurs</mat-option>
+                          <mat-option value="350_4nages_d">350m 4 nages dames</mat-option>
+                          <mat-option value="350_4nages_m">350m 4 nages messieurs</mat-option>
+                          <mat-option value="400_4nages_d">400m 4 nages dames</mat-option>
+                          <mat-option value="400_4nages_m">400m 4 nages messieurs</mat-option>
+                          <mat-option value="4x25_nage_libre_d">4 x 25m nage libre dames</mat-option>
+                          <mat-option value="4x25_nage_libre_m">4 x 25m nage libre messieurs</mat-option>
+                          <mat-option value="4x25_nage_libre_mixte">4 x 25m nage libre mixte</mat-option>
+                          <mat-option value="4x50_nage_libre_d">4 x 50m nage libre dames</mat-option>
+                          <mat-option value="4x50_nage_libre_m">4 x 50m nage libre messieurs</mat-option>
+                          <mat-option value="4x50_nage_libre_mixte">4 x 50m nage libre mixte</mat-option>
+                          <mat-option value="4x100_nage_libre_d">4 x 100m nage libre dames</mat-option>
+                          <mat-option value="4x100_nage_libre_m">4 x 100m nage libre messieurs</mat-option>
+                          <mat-option value="4x100_nage_libre_mixte">4 x 100m nage libre mixte</mat-option>
+                          <mat-option value="4x200_nage_libre_d">4 x 200m nage libre dames</mat-option>
+                          <mat-option value="4x200_nage_libre_m">4 x 200m nage libre messieurs</mat-option>
+                          <mat-option value="4x200_nage_libre_mixte">4 x 200m nage libre mixte</mat-option>
+                          <mat-option value="4x25_dos_d">4 x 25m dos dames</mat-option>
+                          <mat-option value="4x25_dos_m">4 x 25m dos messieurs</mat-option>
+                          <mat-option value="4x50_dos_d">4 x 50m dos dames</mat-option>
+                          <mat-option value="4x50_dos_m">4 x 50m dos messieurs</mat-option>
+                          <mat-option value="4x25_brasse_d">4 x 25m brasse dames</mat-option>
+                          <mat-option value="4x25_brasse_m">4 x 25m brasse messieurs</mat-option>
+                          <mat-option value="4x50_brasse_d">4 x 50m brasse dames</mat-option>
+                          <mat-option value="4x50_brasse_m">4 x 50m brasse messieurs</mat-option>
+                          <mat-option value="4x25_papillon_d">4 x 25m papillon dames</mat-option>
+                          <mat-option value="4x25_papillon_m">4 x 25m papillon messieurs</mat-option>
+                          <mat-option value="4x50_papillon_d">4 x 50m papillon dames</mat-option>
+                          <mat-option value="4x50_papillon_m">4 x 50m papillon messieurs</mat-option>
+                          <mat-option value="4x25_4nage_d">4 x 25m 4 nages dames</mat-option>
+                          <mat-option value="4x25_4nage_m">4 x 25m 4 nages messieurs</mat-option>
+                          <mat-option value="4x25_4nage_mixte">4 x 25m 4 nages mixte</mat-option>
+                          <mat-option value="4x50_4nage_d">4 x 50m 4 nages dames</mat-option>
+                          <mat-option value="4x50_4nage_m">4 x 50m 4 nages messieurs</mat-option>
+                          <mat-option value="4x50_4nage_mixte">4 x 50m 4 nages mixte</mat-option>
+                          <mat-option value="4x100_4nage_d">4 x 100m 4 nages dames</mat-option>
+                          <mat-option value="4x100_4nage_m">4 x 100m 4 nages messieurs</mat-option>
+                          <mat-option value="4x100_4nage_mixte">4 x 100m 4 nages mixte</mat-option>
+                          <mat-option value="6x50_nage_libre_d">6 x 50m  nage libre dames</mat-option>
+                          <mat-option value="6x50_nage_libre_m">6 x 50m  nage libre messieurs</mat-option>
+                          <mat-option value="6x50_nage_libre_mixte">6 x 50m  nage libre mixte</mat-option>
+                          <mat-option value="8x50_nage_libre_d">8 x 50m  nage libre dames</mat-option>
+                          <mat-option value="8x50_nage_libre_m">8 x 50m  nage libre messieurs</mat-option>
+                          <mat-option value="8x100_nage_libre_d">8 x 100m  nage libre dames</mat-option>
+                          <mat-option value="8x100_nage_libre_m">8 x 100m  nage libre messieurs</mat-option>
+                          <mat-option value="10x25_nage_libre_d">10 x 25m  nage libre dames</mat-option>
+                          <mat-option value="10x25_nage_libre_m">10 x 25m  nage libre messieurs</mat-option>
+                          <mat-option value="10x25_nage_libre_mixte">10 x 25m  nage libre mixte</mat-option>
+                          <mat-option value="10x50_nage_libre_d">10 x 50m  nage libre dames</mat-option>
+                          <mat-option value="10x50_nage_libre_m">10 x 50m  nage libre messieurs</mat-option>
+                          <mat-option value="10x50_nage_libre_mixte">10 x 50m  nage libre mixte</mat-option>
+                          <mat-option value="10x100_nage_libre_d">10 x 100m  nage libre dames</mat-option>
+                          <mat-option value="10x100_nage_libre_m">10 x 100m  nage libre messieurs</mat-option>
+                          <mat-option value="10x100_nage_libre_mixte">10 x 100m  nage libre mixte</mat-option>
+                          <mat-option value="12x50_nage_libre_mixte">12 x 50m  nage libre mixte</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="example-form-field region1">
+                      <mat-label>Choose a date</mat-label>
+                      <input 
+                              [(ngModel)]="test.date" 
+                              name="dateNaissance" 
+                              matInput 
+                              [matDatepicker]="datepicker"
+                                                        >
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                      <mat-datepicker  #datepicker>
+                        <mat-datepicker-actions>
+                          <button mat-button matDatepickerCancel>Cancel</button>
+                          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                      </mat-datepicker>
+                    </mat-form-field>
+                  <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Classement</mat-label>
+                      <mat-select  name="category" class="country"  [(ngModel)]="test.classement">
+                        <mat-option value="finale" >
+                              finale
+                        </mat-option>
+                        <mat-option value="1/8finale" >
+                          1/8 finale
+                    </mat-option>
+                    <mat-option value="1/4finale" >
+                      1/4 finale
+                </mat-option>
+                <mat-option value="1/2finale" >
+                  1/2 finale
+            </mat-option>
+            <mat-option value="classement_au_temps" >
+             classement au temps
+        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="w100 region1" appearance="fill">
+                      
+                      <mat-label>Nb</mat-label>
+                      <input required  [(ngModel)]="test.nb" type="text" name="lieu_de_naissance"  placeholder="Enter here" matInput id=""/>
+                  </mat-form-field>
+                    <mat-form-field appearance="fill" class="mt20 w100 countries">
+                      <mat-label >Finale</mat-label>
+                      <mat-select>
+                          <mat-option value="all">All categories</mat-option>
+                          <mat-option value="by">By categories</mat-option>
+                          
+                        </mat-select>
+                    </mat-form-field>
+                    
+                 
+                  <br>
+                  <button mat-raised-button class=" add" >Edit</button>
+                  <button mat-raised-button class="clear " (click)="clear1()">Clear</button>
+  
+          </div></mat-tab>
+  
+          <mat-tab label="Qualifications" > 
+          &nbsp;
+          
+          <h4>Accès en finales  </h4> 
+          <mat-form-field class="w100 region1" appearance="fill">
+                   
+            
+            <input required  [(ngModel)]="test.qualified_finales" type="number" min="0" max="6" name="nom"   matInput id=""/>
+          
+           
+          
+          </mat-form-field>
+          Qualifiés par catégorie dont les 
+          <mat-form-field class="w100 region2" appearance="fill">
+            <input required  [(ngModel)]="test.first_finales" type="number"  name="nom"   matInput id=""/>
+           
+          </mat-form-field>
+          premiers de chaque 1/2 finale
+          <h4>Accès en 1/2 finales </h4>    
+          <mat-form-field class="w100 region1" appearance="fill">
+             
+         
+         <input required  [(ngModel)]="test.qualified_finales12" type="number" min="0" max="12" name="nom"   matInput id=""/>
+         
+        
+         
+       </mat-form-field>
+       Qualifiés par catégorie dont les 
+       <mat-form-field class="w100 region2" appearance="fill">
+        <input required  [(ngModel)]="test.first_finales12" type="number"  name="nom"   matInput id=""/>
+       </mat-form-field>
+       premiers de chaque 1/4 finale
+       <h4>Accès en 1/4 finales </h4> 
+       <mat-form-field class="w100 region1" appearance="fill">
+           
+     
+     <input required  [(ngModel)]="test.qualified_finales14" type="number" min="0" max="24" name="nom"   matInput id=""/>
+     <mat-label>Qualifiés par catégorie  </mat-label>
+     
+   </mat-form-field>
+
+      <button mat-raised-button class="clear clear1" (click)="clear2()">Clear</button>
+  </mat-tab>
+         
+        </mat-tab-group>
+       </form>
+         
+  
+    <br>
+    </div>
+  </mat-card>
+  
