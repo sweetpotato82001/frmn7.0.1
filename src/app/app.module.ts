@@ -90,6 +90,7 @@ import { ButtonEditParticipantRendererComponent } from './admin/button-edit-part
 import { EditParticipantDetailComponent } from './admin/edit-participant-detail/edit-participant-detail.component';
 import { HistoryParticipantComponent } from './admin/history-participant/history-participant.component';
 import { HistoryAccountComponent } from './admin/history-account/history-account.component';
+import { ExperimentComponent } from './admin/experiment/experiment.component';
 
 @NgModule({
   declarations: [
@@ -156,6 +157,7 @@ import { HistoryAccountComponent } from './admin/history-account/history-account
        EditParticipantDetailComponent,
        HistoryParticipantComponent,
        HistoryAccountComponent,
+       ExperimentComponent,
     
   
    

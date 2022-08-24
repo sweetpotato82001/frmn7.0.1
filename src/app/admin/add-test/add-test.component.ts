@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { EpreuveService } from 'src/app/services/epreuve.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-test',
@@ -7,12 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTestComponent implements OnInit {
 
+
+  constructor(private _epreuve:EpreuveService,private _router:Router) { }
   public test={
     no:'',
     nage:'',
     date:'',
     classement:'',
     nb:'',
+    finale:'',
     qualified_finales:'',
     first_finales:'',
     qualified_finales12:'',
@@ -20,7 +26,6 @@ export class AddTestComponent implements OnInit {
     qualified_finales14:'',
 
    };
-  constructor() { }
   clear1(){
     this.test.no='';
     this.test.nage='';
@@ -37,5 +42,19 @@ export class AddTestComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+
+  onSubmit(){
+      this._epreuve.addEpreuve(this.test).subscribe(
+        (data:any)=>{
+          Swal.fire("Success !!", 'Epreuve is added successfully','success').then(()=>{
+            this._router.navigate(['/admin/viewTest']);
+        },
+        (error)=>{
+          console.log(error);
+          Swal.fire('Error !!', 'Something went wrong try later !!', 'error');
+        }
+      );
+    }); 
+  } 
 
 }

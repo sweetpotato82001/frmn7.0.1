@@ -1,23 +1,25 @@
 <mat-card class="container">
     <h1>Add New Participant</h1>
     <div class="row">
-       <form >
+       <form (ngSubmit)="submitForm()">
         <mat-tab-group>
           <mat-tab label="Nageur"> 
               <div class="col-md-10 offset-md-1">
                  
                   <mat-form-field appearance="fill" class="mt20 w100 countries">
-                      <mat-label >Nage</mat-label>
-                      <mat-select [(ngModel)]="participant.nage" name="nage">
-                          <mat-option value="25_nage_libres_d">ASAMIN</mat-option>
+                      <mat-label >Club</mat-label>
+                      <mat-select required  [(ngModel)]="participant.clubName" name="clubName"  (selectionChange)="myFunc()">
+                        <mat-option *ngFor="let c of clubs" [value]="c.name" >
+                          {{c.name}}
+                         </mat-option>
                         </mat-select>
                     </mat-form-field>
                    
                   <mat-form-field appearance="fill" class="mt20 w100 countries">
-                      <mat-label >Classement</mat-label>
+                      <mat-label >Nageur</mat-label>
                       <mat-select  name="nageur" class="country"  [(ngModel)]="participant.nageur">
-                        <mat-option value="finale" >
-                             SILVA PINTO
+                        <mat-option *ngFor="let n of nageurs" [value]="n.nom">
+                            {{n.nom}}
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
@@ -26,17 +28,20 @@
 <mat-radio-group
   aria-labelledby="example-radio-group-label"
   class="example-radio-group region1"
+  [(ngModel)]="participant.baniere"
+  name="baniere"
   >
   
-  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.club"  value="club" name="club" >
+  
+  <mat-radio-button class="example-radio-button"    value="club" >
     Club
   </mat-radio-button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.pays" value="pays" name="pays">
+  <mat-radio-button class="example-radio-button" value="pays" >
     Pays
   </mat-radio-button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-radio-button class="example-radio-button" [(ngModel)]="participant.autre" value="autre" name="autre" >
+  <mat-radio-button class="example-radio-button"  value="autre" >
     Other
   </mat-radio-button>
 </mat-radio-group>
@@ -55,32 +60,129 @@
   
            <mat-tab label="Engagement details" > 
           &nbsp;
-          <div *ngFor="let hobby of hobbiesArray.controls; last as isLast; index as idx" class="input-row">
+          <div *ngFor="let dynamic of dynamicArray; let i = index;" class="input-row">
             <mat-form-field>
               <mat-label>Epreuve</mat-label>
-              <input matInput [formControl]="hobby" >
+              <mat-select name="{{i}}" [(ngModel)]="dynamic.epreuve">
+                <mat-option value="25_nage_libres_d">25 m nage libre dames</mat-option>
+                <mat-option value="25_nage_libres_m">25 m nage libre messieurs</mat-option>
+                <mat-option value="50_nage_libres_d">50 m nage libre dames</mat-option>
+                <mat-option value="50_nage_libres_m">50 m nage libre messieurs</mat-option>
+                <mat-option value="100_nage_libres_d">100 m nage libre dames</mat-option>
+                <mat-option value="100_nage_libres_m">100 m nage libre messieurs</mat-option>
+                <mat-option value="200_nage_libres_d">200 m nage libre dames</mat-option>
+                <mat-option value="200_nage_libres_m">200 m nage libre messieurs</mat-option>
+                <mat-option value="400_nage_libres_d">400 m nage libre dames</mat-option>
+                <mat-option value="400_nage_libres_m">400 m nage libre messieurs</mat-option>
+                <mat-option value="800_nage_libres_d">800 m nage libre dames</mat-option>
+                <mat-option value="800_nage_libres_m">800 m nage libre messieurs</mat-option>
+                <mat-option value="1000_nage_libres_d">1000 m nage libre dames</mat-option>
+                <mat-option value="1000_nage_libres_m">1000 m nage libre messieurs</mat-option>
+                <mat-option value="1500_nage_libres_d">1500 m nage libre dames</mat-option>
+                <mat-option value="1500_nage_libres_m">1500 m nage libre messieurs</mat-option>
+                <mat-option value="25_dos_d">25m dos dames</mat-option>
+                <mat-option value="25_dos_m">25m dos messieurs</mat-option>
+                <mat-option value="50_dos_d">50m dos dames</mat-option>
+                <mat-option value="50_dos_m">50m dos messieurs</mat-option>
+                <mat-option value="100_dos_d">100m dos dames</mat-option>
+                <mat-option value="100_dos_m">100m dos messieurs</mat-option>
+                <mat-option value="200_dos_d">200m dos dames</mat-option>
+                <mat-option value="200_dos_m">200m dos messieurs</mat-option>
+                <mat-option value="25_brasse_d">25m brasse dames</mat-option>
+                <mat-option value="25_brasse_m">25m brasse messieurs</mat-option>
+                <mat-option value="50_brasse_d">50m brasse dames</mat-option>
+                <mat-option value="50_brasse_m">50m brasse messieurs</mat-option>
+                <mat-option value="100_brasse_d">100m brasse dames</mat-option>
+                <mat-option value="100_brasse_m">100m brasse messieurs</mat-option>
+                <mat-option value="200_brasse_d">200m brasse dames</mat-option>
+                <mat-option value="200_brasse_m">200m brasse messieurs</mat-option>
+                <mat-option value="25_papillon_d">25m papillon dames</mat-option>
+                <mat-option value="25_papillon_m">25m papillon messieurs</mat-option>
+                <mat-option value="50_papillon_d">50m papillon dames</mat-option>
+                <mat-option value="50_papillon_m">50m papillon messieurs</mat-option>
+                <mat-option value="100_papillon_d">100m papillon dames</mat-option>
+                <mat-option value="100_papillon_m">100m papillon messieurs</mat-option>
+                <mat-option value="200_papillon_d">200m papillon dames</mat-option>
+                <mat-option value="200_papillon_m">200m papillon messieurs</mat-option>
+                <mat-option value="100_4nages_d">100m 4 nages dames</mat-option>
+                <mat-option value="100_4nages_m">100m 4 nages messieurs</mat-option>
+                <mat-option value="200_4nages_d">200m 4 nages dames</mat-option>
+                <mat-option value="200_4nages_m">200m 4 nages messieurs</mat-option>
+                <mat-option value="350_4nages_d">350m 4 nages dames</mat-option>
+                <mat-option value="350_4nages_m">350m 4 nages messieurs</mat-option>
+                <mat-option value="400_4nages_d">400m 4 nages dames</mat-option>
+                <mat-option value="400_4nages_m">400m 4 nages messieurs</mat-option>
+                <mat-option value="4x25_nage_libre_d">4 x 25m nage libre dames</mat-option>
+                <mat-option value="4x25_nage_libre_m">4 x 25m nage libre messieurs</mat-option>
+                <mat-option value="4x25_nage_libre_mixte">4 x 25m nage libre mixte</mat-option>
+                <mat-option value="4x50_nage_libre_d">4 x 50m nage libre dames</mat-option>
+                <mat-option value="4x50_nage_libre_m">4 x 50m nage libre messieurs</mat-option>
+                <mat-option value="4x50_nage_libre_mixte">4 x 50m nage libre mixte</mat-option>
+                <mat-option value="4x100_nage_libre_d">4 x 100m nage libre dames</mat-option>
+                <mat-option value="4x100_nage_libre_m">4 x 100m nage libre messieurs</mat-option>
+                <mat-option value="4x100_nage_libre_mixte">4 x 100m nage libre mixte</mat-option>
+                <mat-option value="4x200_nage_libre_d">4 x 200m nage libre dames</mat-option>
+                <mat-option value="4x200_nage_libre_m">4 x 200m nage libre messieurs</mat-option>
+                <mat-option value="4x200_nage_libre_mixte">4 x 200m nage libre mixte</mat-option>
+                <mat-option value="4x25_dos_d">4 x 25m dos dames</mat-option>
+                <mat-option value="4x25_dos_m">4 x 25m dos messieurs</mat-option>
+                <mat-option value="4x50_dos_d">4 x 50m dos dames</mat-option>
+                <mat-option value="4x50_dos_m">4 x 50m dos messieurs</mat-option>
+                <mat-option value="4x25_brasse_d">4 x 25m brasse dames</mat-option>
+                <mat-option value="4x25_brasse_m">4 x 25m brasse messieurs</mat-option>
+                <mat-option value="4x50_brasse_d">4 x 50m brasse dames</mat-option>
+                <mat-option value="4x50_brasse_m">4 x 50m brasse messieurs</mat-option>
+                <mat-option value="4x25_papillon_d">4 x 25m papillon dames</mat-option>
+                <mat-option value="4x25_papillon_m">4 x 25m papillon messieurs</mat-option>
+                <mat-option value="4x50_papillon_d">4 x 50m papillon dames</mat-option>
+                <mat-option value="4x50_papillon_m">4 x 50m papillon messieurs</mat-option>
+                <mat-option value="4x25_4nage_d">4 x 25m 4 nages dames</mat-option>
+                <mat-option value="4x25_4nage_m">4 x 25m 4 nages messieurs</mat-option>
+                <mat-option value="4x25_4nage_mixte">4 x 25m 4 nages mixte</mat-option>
+                <mat-option value="4x50_4nage_d">4 x 50m 4 nages dames</mat-option>
+                <mat-option value="4x50_4nage_m">4 x 50m 4 nages messieurs</mat-option>
+                <mat-option value="4x50_4nage_mixte">4 x 50m 4 nages mixte</mat-option>
+                <mat-option value="4x100_4nage_d">4 x 100m 4 nages dames</mat-option>
+                <mat-option value="4x100_4nage_m">4 x 100m 4 nages messieurs</mat-option>
+                <mat-option value="4x100_4nage_mixte">4 x 100m 4 nages mixte</mat-option>
+                <mat-option value="6x50_nage_libre_d">6 x 50m  nage libre dames</mat-option>
+                <mat-option value="6x50_nage_libre_m">6 x 50m  nage libre messieurs</mat-option>
+                <mat-option value="6x50_nage_libre_mixte">6 x 50m  nage libre mixte</mat-option>
+                <mat-option value="8x50_nage_libre_d">8 x 50m  nage libre dames</mat-option>
+                <mat-option value="8x50_nage_libre_m">8 x 50m  nage libre messieurs</mat-option>
+                <mat-option value="8x100_nage_libre_d">8 x 100m  nage libre dames</mat-option>
+                <mat-option value="8x100_nage_libre_m">8 x 100m  nage libre messieurs</mat-option>
+                <mat-option value="10x25_nage_libre_d">10 x 25m  nage libre dames</mat-option>
+                <mat-option value="10x25_nage_libre_m">10 x 25m  nage libre messieurs</mat-option>
+                <mat-option value="10x25_nage_libre_mixte">10 x 25m  nage libre mixte</mat-option>
+                <mat-option value="10x50_nage_libre_d">10 x 50m  nage libre dames</mat-option>
+                <mat-option value="10x50_nage_libre_m">10 x 50m  nage libre messieurs</mat-option>
+                <mat-option value="10x50_nage_libre_mixte">10 x 50m  nage libre mixte</mat-option>
+                <mat-option value="10x100_nage_libre_d">10 x 100m  nage libre dames</mat-option>
+                <mat-option value="10x100_nage_libre_m">10 x 100m  nage libre messieurs</mat-option>
+                <mat-option value="10x100_nage_libre_mixte">10 x 100m  nage libre mixte</mat-option>
+                <mat-option value="12x50_nage_libre_mixte">12 x 50m  nage libre mixte</mat-option>
+              </mat-select>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Temps</mat-label>
-              <input matInput [formControl]="hobby" style="margin-left: 15px;">
+              <input  name="{{i+100}}" [(ngModel)]="dynamic.time" matInput type="time" step="1" style="margin-left: 15px;">
             </mat-form-field>
-            <mat-checkbox class="example-margin" [(ngModel)]="participant.hors_concours">Hors concours</mat-checkbox>
+            <mat-checkbox  name="{{i+250}}" [(ngModel)]="dynamic.horsConcours"     class="example-margin">Hors concours</mat-checkbox>
             <mat-form-field appearance="fill" class="mt20 w100 countries">
               <mat-label >Bassin</mat-label>
-              <mat-select [(ngModel)]="participant.bassin" name="nage">
-                  <mat-option value="25_nage_libres_d">Petit bassin</mat-option>
-                  <mat-option value="25_nage_libres_d">Grand bassin</mat-option>
-                  <mat-option value="25_nage_libres_d">Tout bassin</mat-option>
+              <mat-select name="{{i+200}}" [(ngModel)]="dynamic.bassin">
+                  <mat-option value="Petit bassin">Petit bassin</mat-option>
+                  <mat-option value="Grand bassin">Grand bassin</mat-option>
+                  <mat-option value="Tout bassin">Tout bassin</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill" class="example-form-field region1">
               <mat-label>Choose a date</mat-label>
               <input 
-                      [(ngModel)]="participant.date" 
-                      name="dateNaissance" 
+                       name="{{i+150}}" [(ngModel)]="dynamic.date"
                       matInput 
-                      [matDatepicker]="datepicker"
-                                                >
+                      [matDatepicker]="datepicker"                        >
               <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
               <mat-datepicker  #datepicker>
@@ -92,18 +194,18 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Lieu</mat-label>
-              <input matInput [formControl]="hobby">
+              <input matInput  name="{{i+300}}"  [(ngModel)]="dynamic.place">
             </mat-form-field>
-            <button mat-icon-button color="warn" (click)="removeInputControl(idx)" *ngIf="hobbiesArray.length>1">
+            <button mat-icon-button color="warn" (click)="deleteRow(i)" >
               <mat-icon>remove_circle</mat-icon>
             </button>
-            <button mat-icon-button color="primary" *ngIf="isLast" (click)="addInputControl()">
-              <mat-icon>add_circle</mat-icon>
-
-            </button>
            
-
+            <button mat-icon-button color="primary" type="button" (click)="addRow()">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+      
           </div>
+   
          
   </mat-tab> 
          
@@ -115,3 +217,4 @@
     </div>
   </mat-card>
   
+

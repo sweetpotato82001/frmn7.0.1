@@ -1,4 +1,4 @@
 
-<button mat-raised-button class="details" routerLink="/admin/editTestDetails">Edit</button>
+<button mat-raised-button class="details" [routerLink]="['/admin/editTestDetails', value]">Edit</button>
 &nbsp;&nbsp;&nbsp;
-<button mat-raised-button class="participants" >Delete</button> 
+<button mat-raised-button class="participants" (click)="deleteEpreuve()" >Delete</button> 

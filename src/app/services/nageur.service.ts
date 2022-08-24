@@ -50,5 +50,9 @@ export class NageurService {
   public getNageurByLicense(License:any){
     return this.http.get(`${baseUrl}/nageur/last_record/${License}`);
   }
+  //Get nageur by club
+  public getNageurByClub(club:any){
+    return this.http.get(`${baseUrl}/nageur/get_club/${club}`);
+  }
 
 }

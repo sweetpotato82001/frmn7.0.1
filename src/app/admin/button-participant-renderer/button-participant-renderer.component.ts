@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   templateUrl: './button-participant-renderer.component.html',
   styleUrls: ['./button-participant-renderer.component.css']
 })
-export class ButtonParticipantRendererComponent implements OnInit {
+export class ButtonParticipantRendererComponent implements OnInit,ICellRendererAngularComp {
   value :any;
  
  

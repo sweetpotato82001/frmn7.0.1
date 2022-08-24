@@ -21,6 +21,7 @@ import { EditParticipantDetailComponent } from './admin/edit-participant-detail/
 import { EditParticipantComponent } from './admin/edit-participant/edit-participant.component';
 import { EditTestComponent } from './admin/edit-test/edit-test.component';
 import { EditTetsDetailsComponent } from './admin/edit-tets-details/edit-tets-details.component';
+import { ExperimentComponent } from './admin/experiment/experiment.component';
 import { FilterNageursComponent } from './admin/filter-nageurs/filter-nageurs.component';
 import { HistoryParticipantComponent } from './admin/history-participant/history-participant.component';
 import { HistoryTestComponent } from './admin/history-test/history-test.component';
@@ -31,6 +32,7 @@ import { NageurHistoryComponent } from './admin/nageur-history/nageur-history.co
 import { ParticipantDetailsComponent } from './admin/participant-details/participant-details.component';
 import { ProfilComponent } from './admin/profil/profil.component';
 import { RegisterComponent } from './admin/register/register.component';
+import { TableScoreComponent } from './admin/table-score/table-score.component';
 import { TransfertComponent } from './admin/transfert/transfert.component';
 import { ViewAccountComponent } from './admin/view-account/view-account.component';
 import { ViewClubsComponent } from './admin/view-clubs/view-clubs.component';
@@ -166,13 +168,13 @@ const routes: Routes = [
       path:'viewTest',
       component:ViewTetsComponent,
      },{
-      path:'viewTestDetails',
+      path:'viewTestDetails/:id',
       component:ViewDetailsTestComponent,
      }, {
       path:'editTest',
       component:EditTestComponent,
      },{
-      path:'editTestDetails',
+      path:'editTestDetails/:id',
       component:EditTetsDetailsComponent,
      },
      {
@@ -188,7 +190,7 @@ const routes: Routes = [
       component:ViewParticipantComponent,
      },
      {
-      path:'participantDetails',
+      path:'participantDetails/:id',
       component:ParticipantDetailsComponent,
      },
      {
@@ -196,18 +198,26 @@ const routes: Routes = [
       component:EditParticipantComponent,
      },
      {
-      path:'editParticipantDetails',
+      path:'editParticipantDetails/:id',
       component:EditParticipantDetailComponent,
      },
      {
       path:'historyParticipant',
       component:HistoryParticipantComponent,
      },
+     {
+      path:'tablescore',
+      component:TableScoreComponent
+     }
   ]
 },
 {
   path:'',
   component: LoginComponent
+},
+{
+  path:'experiment', 
+  component:ExperimentComponent,
 }
 ];
 

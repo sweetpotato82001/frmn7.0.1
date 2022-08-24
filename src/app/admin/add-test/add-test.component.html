@@ -1,7 +1,7 @@
 <mat-card class="container">
     <h1>Add New Test</h1>
     <div class="row">
-       <form >
+       <form (ngSubmit)="onSubmit()">
         <mat-tab-group>
           <mat-tab label="Nageur"> 
               <div class="col-md-10 offset-md-1">
@@ -158,7 +158,7 @@
                   </mat-form-field>
                     <mat-form-field appearance="fill" class="mt20 w100 countries">
                       <mat-label >Finale</mat-label>
-                      <mat-select>
+                      <mat-select required [(ngModel)]="test.finale" name="finale">
                           <mat-option value="all">All categories</mat-option>
                           <mat-option value="by">By categories</mat-option>
                           
@@ -223,4 +223,3 @@
     <br>
     </div>
   </mat-card>
-  

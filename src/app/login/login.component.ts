@@ -64,8 +64,9 @@ export class LoginComponent implements OnInit {
         );
       },
       (error)=>{
-        console.log('Error !');
-        console.log(error);
+        this.snack.open("wrong password or username" , '', {
+          duration: 3000
+        });
       }
     );
     
